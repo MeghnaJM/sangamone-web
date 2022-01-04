@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+
+
+	<input type="text" id="sort" placeholder="Search" title="Search your country here.." name="Search">
+	
+
+<button>Search</button>
+
+<ul class="myUL">
+  <li>India</li>
+  <li>America</li>
+  <li>UK</li>
+  <li>China</li>
+  <li>Nepal</li>
+  <li>Korea</li>
+  <li>Japan</li>
+</ul>
+<script>
+	document.getElementById("sort")[0].addEventListener("click",sortList);
+	function sortList(){
+		var list,i,flag,e,sorted;
+		list=document.querySelector(".myUL");
+		flag=true;
+		while(flag){
+			flag=false;
+			e=list.getElementByTagName("LI");
+			for(i=0; i<e.length-1;i++){
+				sorted=false;
+				if(e[i].innerHTML.toLowerCase()>e[i+1].innerHTML.toLowerCase()){
+					sorted=true;
+					break;
+				}
+			}
+			if(sorted){
+				e[i].parentNode.insertBefore(e[i+1],e[i]);
+				flag=true;
+
+			}
+		}
+	}
+</script>
+
+</body>
+</html>
